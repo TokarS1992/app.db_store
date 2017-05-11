@@ -1,0 +1,22 @@
+<modal modalName="login" modalClose=true [closeCont]="{ 
+    class: 'fa fa-times'
+}" [closeEverywhere]=true>
+    <modal-cont>
+        <div class="login">
+            <form (ngSubmit)="onSubmit()" [formGroup]="formLog">
+                <input placeholder="Login" type="text" formControlName="email">
+                <div [hidden]="formLog.controls.email.untouched || formLog.controls.email.valid" class="alert alert-danger">
+                    <span *ngIf="formLog.controls.email.invalid && formLog.controls.email.errors.required">{{ errors.email.required }}</span>
+                    <span *ngIf="formLog.controls.email.invalid && formLog.controls.email.errors.pattern">{{ errors.email.pattern }}</span>
+                </div>
+                <input placeholder="Password" type="password" formControlName="password">
+                <div [hidden]="formLog.controls.password.untouched || formLog.controls.password.valid" class="alert alert-danger">
+                    <span *ngIf="formLog.controls.password.invalid && formLog.controls.password.errors.required">{{ errors.password.required }}</span>
+                    <span *ngIf="formLog.controls.password.invalid && formLog.controls.password.errors.minlength">{{ errors.password.minimum }}</span>
+                </div>
+                <button class="btn" [class.disabled]="formLog.invalid" [disabled]="formLog.invalid" type="submit">Sign in</button>
+            </form>
+            <div *ngIf="!logStatus" class="message-warning">{{ serverMessage }}</div>
+        </div>
+    </modal-cont>
+</modal>

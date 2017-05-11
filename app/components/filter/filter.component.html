@@ -1,0 +1,20 @@
+<div class="filter-wrap clearfix col-md-3" [class.fixed]='checkFixed'>
+    {{selectedBrands}}
+    <form action="" [formGroup]="formFilter">
+        <div class="from_to_prices">
+            <span>From</span>
+            <input type="number" name="from" [formControl]="formFilter.controls['from']" (input)="checkInp($event.target)">
+            <div class="alert alert-danger" [hidden]="formFilter.controls['from'].valid">Please not use arifmetic symbols(+,-,*,/)</div>
+            <span>To</span>
+            <input type="number" name="to" [formControl]="formFilter.controls['to']" (input)="checkInp($event.target)">
+        </div>
+        <div class="categories">
+            <p *ngFor="let brand of brands"><input type="checkbox" (click)="checkBrand(brand)"> {{brand}} </p>
+        </div>
+        <button (click)="filterProduct()">FILTER</button>
+    </form>
+    <div class="sorting">
+        <button (click)="sortProcuct('price', true)">SORT by price /\</button>
+        <button (click)="sortProcuct('price', false)">SORT by price \/</button>
+    </div>
+</div>

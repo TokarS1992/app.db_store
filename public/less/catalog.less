@@ -1,0 +1,26 @@
+@import "lib/mixins";
+@import "lib/variables";
+
+.catalog-wrap {
+    .catalog-item {
+        width: 20%;
+        float: left;
+        padding: 15px;
+        &__wrap {
+           img {
+               cursor: pointer;
+               .w_h(100%, 200px);
+           }
+        }
+
+    }
+    &.marginLeft {
+        margin-left: 25%;
+    }
+}
+
+@media (max-width: 700px) {
+    .catalog-item {
+    width: 100%;
+    }
+}

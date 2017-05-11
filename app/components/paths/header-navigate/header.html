@@ -1,0 +1,10 @@
+<header>
+    <div class="header">
+        <ul class="nav-menu">
+            <li *ngFor="let cat of categories" routerLinkActive="active_menu">
+                <a [routerLink]="cat.path"> {{ cat.title }} </a>
+            </li>
+        </ul>
+        <identification></identification>
+    </div>
+</header>

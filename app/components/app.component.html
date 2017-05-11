@@ -1,0 +1,15 @@
+<div class="block-header" *ngIf="header">
+    <header-navigate></header-navigate>
+</div>
+
+<main>
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+</main>
+
+<div class="block-footer" *ngIf="footer">
+    <footer-navigate></footer-navigate>
+</div>
+
+<router-outlet name="auth"></router-outlet>

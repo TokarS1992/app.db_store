@@ -1,0 +1,36 @@
+<div class="page_admin-form" xmlns="http://www.w3.org/1999/html">
+    <form class="ui form" novalidate (ngSubmit)="submit()">
+    <form class="ui form" novalidate (ngSubmit)="submit()">
+
+        <div class="field"  >
+            <label>Title:</label>
+            <input type="text" formControlName="title">
+        </div>
+
+        <div class="field" >
+            <label>Brand: </label>
+            <input type="text" formControlName="brand">
+        </div>
+
+        <div class="field" >
+            <label>Price: </label>
+            <input type="number" formControlName="price">
+        </div>
+
+        <div class="field"  >
+            <label>Image url: </label>
+            <input type="url" formControlName="image">
+        </div>
+
+
+        <div class="ui centered header">
+            <button class="ui button page_admin-add--button-confirm" type="submit" >
+                <i class="fa" [ngClass]="{'fa-plus': action === 'submit', 'fa-floppy-o': action === 'add'}"></i> {{action === 'submit' ? 'Add' : 'Save'}}
+            </button>
+            <a class="ui button page_admin-add--button-cancel" (click)="cancel()">
+                <i class="fa fa-undo"></i> Cancel
+            </a>
+        </div>
+       </form>
+    </form>
+</div>

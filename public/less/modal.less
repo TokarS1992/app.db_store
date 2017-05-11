@@ -1,0 +1,44 @@
+
+@import "lib/mixins";
+@import "lib/variables";
+
+.mix_modal(_modal,9999);
+
+._modal {
+    opacity: 0;
+    .transition(opacity ease-in-out 0.4s);
+    .wrap-modal {
+        position: relative;
+        margin: 0 auto;
+        width: 400px;
+        background-color: #fff;
+        padding: 35px;
+        .transform(translateY(-100%));
+        .transition(transform ease-in-out 0.4s);
+        .sign-up, .login {
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                input {
+                    width: 100%;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+        .close-modal {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            .fa {
+                font-size: 22px;
+            }
+        }
+    }
+    &.in {
+        opacity: 1;
+        .wrap-modal  {
+            .transform(translateY(20px));
+        }
+    }
+}

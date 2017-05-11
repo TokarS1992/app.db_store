@@ -1,0 +1,33 @@
+<modal modalName="sign-up" modalClose=true [closeCont]="{ 
+    class: 'fa fa-times'
+}" [closeEverywhere]=true>
+    <modal-cont>
+        <div class="sign-up">
+            <form action="" (ngSubmit)="onSubmit()" [formGroup]="formReg">
+                <input type="text" name="name" formControlName="name" placeholder="Name">
+                <div [hidden]="formReg.controls.name.untouched || formReg.controls.name.valid" class="alert alert-danger">
+                    <span *ngIf="formReg.controls.name.invalid && formReg.controls.name.errors.required">{{ errors.name.required }}</span>
+                    <span *ngIf="formReg.controls.name.invalid && formReg.controls.name.errors.minlength">{{ errors.name.minimum }}</span>
+                    <span *ngIf="formReg.controls.name.invalid && formReg.controls.name.errors.maxlength">{{ errors.name.maximum }}</span>
+                </div>
+                <input placeholder="E-mail" type="text" name="email" formControlName="email">
+                <div [hidden]="formReg.controls.email.untouched || formReg.controls.email.valid" class="alert alert-danger">
+                    <span *ngIf="formReg.controls.email.invalid && formReg.controls.email.errors.required">{{ errors.email.required }}</span>
+                    <span *ngIf="formReg.controls.email.invalid && formReg.controls.email.errors.pattern">{{ errors.email.pattern }}</span>
+                </div>
+
+                <input placeholder="Password" type="password" name="password" formControlName="password">
+                <div [hidden]="formReg.controls.password.untouched || formReg.controls.password.valid" class="alert alert-danger">
+                    <span *ngIf="formReg.controls.password.invalid && formReg.controls.password.errors.required">{{ errors.password.required }}</span>
+                    <span *ngIf="formReg.controls.password.invalid && formReg.controls.password.errors.minlength">{{ errors.password.minimum }}</span>
+                </div>
+                <button class="btn" [class.disabled]="formReg.invalid" [disabled]="formReg.invalid" type="submit">Sign up</button>
+            </form>
+
+            <!-- Message warning -->
+            <div *ngIf="!newUserStatus" class="message message-warning">{{ serverMessage }}</div>
+            <!-- Message success registrate -->
+            <div *ngIf="newUserStatus" class="message message-success">{{ serverMessage }}</div>
+        </div>
+    </modal-cont>
+</modal>

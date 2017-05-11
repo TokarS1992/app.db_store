@@ -1,0 +1,14 @@
+<div class="_modal" [class.in]="animate" [attr.name]="modalName" role="dialog" tabindex="-1" id="{{ id_modal }}" [ngStyle]="{'display': 'block' }">
+    <div class="wrap-modal" [attr.data-test]="test">
+        <ng-content select="modal-head"></ng-content>
+
+        <ng-content select="modal-cont"></ng-content>
+
+        <div class="close-modal" *ngIf="modalClose" (click)="closeModal()">
+            <span [class]="closeCont.class"></span>
+            <span *ngIf="closeCont.contentButt" class="cont-butt">
+                {{ closeCont.contentButt }}
+            </span>
+        </div>
+    </div>
+</div>

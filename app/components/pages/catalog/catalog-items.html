@@ -1,0 +1,23 @@
+<filter #filter></filter>
+<div class="catalog-wrap clearfix col-md-9" #wrap>
+    <div class="catalog-item" *ngFor="let item of catalog">
+        <div class="catalog-item__wrap">
+            <div class="title"> {{ item.title }} </div>
+            <img src="{{ item.imagePath }}" alt="" (click)="preview(item._id)">
+            <div class="descript">
+                <span> Description: </span> {{ item.description }}
+            </div>
+            <div class="price">
+                <span>Price: </span> {{ item.price }}
+            </div>
+            <div class="select">
+                <select  *ngIf="item.shoesize.length > 0">
+                    <option disabled>Выберите размер</option>
+                    <option *ngFor="let size of item.shoesize" value="{{ size }}"> {{ size }} </option>
+                </select>
+            </div>
+  <button type="button" class="btn btn-default" (click)="deleteProduct(item._id)">Delete product</button>
+
+        </div>
+    </div>
+</div>

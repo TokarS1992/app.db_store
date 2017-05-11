@@ -1,0 +1,8 @@
+<div *ngIf="!viewUserLogin" class="ident-menu clearfix">
+    <span class="log" (click)="openAuth('login')">Log in</span>
+    <span class="reg" (click)="openAuth('signup')">Sign up</span>
+</div>
+<div *ngIf="viewUserLogin" class="user-menu-registrate">
+    <span> Hi, {{ logInfo.name }} ! </span>
+    <span class="logout" (click)="logOut()">Logout</span>
+</div>
